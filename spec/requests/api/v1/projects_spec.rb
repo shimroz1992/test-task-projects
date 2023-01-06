@@ -41,7 +41,7 @@ RSpec.describe 'api/v1/projects', type: :request do
             }
           }
         end
-        
+
         run_test!
       end
     end
@@ -83,38 +83,6 @@ RSpec.describe 'api/v1/projects', type: :request do
         run_test!
       end
     end
-
-    put('update project') do
-      tags 'project'
-      response(200, 'successful') do
-        let(:id) { '123' }
-
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
-        end
-        run_test!
-      end
-    end
-
-    delete('delete project') do
-      tags 'project'
-      response(200, 'successful') do
-        let(:id) { '123' }
-
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
-        end
-        run_test!
-      end
-    end
   end
   path '/api/v1/projects/{id}/get_all_tasks' do
     # You'll want to customize the parameter types...
@@ -135,8 +103,6 @@ RSpec.describe 'api/v1/projects', type: :request do
         run_test!
       end
     end
-
-
 
   end
 
